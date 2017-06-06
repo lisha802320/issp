@@ -1,0 +1,271 @@
+@charset "utf-8";
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form,
+	fieldset, input, textarea, p, blockquote, th, td, button {
+	padding: 0;
+	margin: 0;
+}
+
+fieldset, img {
+	border: 0;
+}
+
+input, label, select, option, textarea, button, fieldset, legend {
+	font-size: 12px;
+	line-height: 22px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	font-size: 12px;
+	line-height: 22px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+ul {
+	list-style: none;
+}
+
+ol, li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	color: #666;
+	font-size: 12px;
+	line-height: 22px;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0 auto;
+}
+
+html {
+	overflow: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+}
+
+img {
+	vertical-align: top;
+	border: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.width {
+	margin: 0 auto;
+	width: 1200px;
+}
+/*链接字体颜色原来为#555*/
+a {
+	color: #292B2C;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #E00116;
+}
+/*字体*/
+.font {
+	font-family: "微软雅黑";
+}
+
+.font2 {
+	font-family: "Arial";
+}
+
+.font8 {
+	font-size: 8px;
+}
+
+.font12 {
+	font-size: 12px;
+}
+
+.font14 {
+	font-size: 14px;
+}
+
+.font16 {
+	font-size: 16px;
+}
+
+.font18 {
+	font-size: 18px;
+}
+
+.font20 {
+	font-size: 20px;
+}
+
+.font22 {
+	font-size: 22px;
+}
+
+.font24 {
+	font-size: 24px;
+}
+
+.font26 {
+	font-size: 26px;
+}
+
+.font30 {
+	font-size: 30px;
+}
+
+.font36 {
+	font-size: 36px;
+}
+/*颜色*/
+a.bai, a.bai:hover, bai:hover, .bai {
+	color: #fff;
+}
+
+a.lan, a.lan:hover, lan:hover, .lan {
+	color: #0091CA;
+}
+
+a.red, a.red:hover, red:hover, .red {
+	color: #E00116;
+}
+
+.qhui {
+	color: #999;
+}
+
+.qhui2 {
+	color: #ccc;
+}
+
+.shui {
+	color: #222;
+}
+
+.margint30 {
+	margin-top: 30px;
+}
+
+.margint26 {
+	margin-top: 26px;
+}
+
+.margint15 {
+	margin-top: 15px;
+}
+
+.margint5 {
+	margin-top: 5px;
+}
+
+.margint10 {
+	margin-top: 10px;
+}
+
+.margint70 {
+	margin-top: 70px;
+}
+
+.marginr20 {
+	margin-right: 20px;
+}
+
+.marginr16 {
+	margin-right: 16px;
+}
+
+.marginr10 {
+	margin-right: 10px;
+}
+
+.marginb20 {
+	margin-bottom: 20px;
+}
+
+.marginb7 {
+	margin-bottom: 7px;
+}
+
+.marginl10 {
+	margin-left: 10px;
+}
+
+.marginl23 {
+	margin-left: 23px;
+}
+
+.textl {
+	text-align: left;
+}
+
+.textc {
+	text-align: center;
+}
+
+.textr {
+	text-align: right;
+}
+
+/*头部*/
+
+/*脚部*/
+
+/*分页*/
+.Pager {
+	height: 20px;
+	margin-bottom: 20px;
+	clear: both;
+	overflow: hidden;
+	position: relative;
+	text-align: center;
+}
+
+.Pager_Nav {
+	line-height: 20px;
+}
+
+.Pager_Buttons a, .Pager_Buttons span {
+	float: left;
+	display: block;
+	height: 20px;
+	line-height: 20px;
+	width: 20px;
+	border-right: 1px solid #fff;
+	background: #939393;
+	color: #fff;
+}
+
+.Pager_Buttons a:hover {
+	text-decoration: none;
+	background: #D2332F;
+	color: #fff;
+}
+
+.Pager_Buttons span {
+	background: #D2332F;
+	border: 0;
+	border-right: 1px solid #fff;
+	font-weight: bold;
+	height: 20px;
+	line-height: 20px;
+}
+
+/*<div id="Pager" style="margin-top:20px;">
+            <div class="Pager"><span class="Pager_Nav"><span class="Pager_Buttons"><a disabled="disabled" class="Pager_PrevBtn"><img src="images/page_l.jpg" width="20" height="20" /></a><span>1</span><a href="javascript:D_ChangePage(2);">2</a><a href="javascript:D_ChangePage(3);">3</a><a href="javascript:D_ChangePage(4);">4</a><a href="javascript:D_ChangePage(5);">5</a><a href="javascript:D_ChangePage(2);" class="Pager_NextBtn"><img src="images/page_r.jpg" width="20" height="20" /></a></span></span></div>
+          </div>*/

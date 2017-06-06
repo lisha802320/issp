@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmsz.ircn.dao.AdminRoleDao">
+  <resultMap id="BaseResultMap" type="com.cmsz.ircn.bean.AdminRole">
+    <result column="admins" jdbcType="BIGINT" property="admins" />
+    <result column="roles" jdbcType="BIGINT" property="roles" />
+  </resultMap>
+  <insert id="insert" parameterType="com.cmsz.ircn.bean.AdminRole">
+    insert into admin_role (admins, roles)
+    values (#{admins,jdbcType=BIGINT}, #{roles,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cmsz.ircn.bean.AdminRole">
+    insert into admin_role
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="admins != null">
+        admins,
+      </if>
+      <if test="roles != null">
+        roles,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="admins != null">
+        #{admins,jdbcType=BIGINT},
+      </if>
+      <if test="roles != null">
+        #{roles,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

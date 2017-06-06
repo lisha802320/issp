@@ -1,0 +1,9 @@
+/applicationContext-dao.xml
+/applicationContext-mvc.xml
+/applicationContext-shiro.xml
+/applicationContext.xml
+/com/
+/config.properties
+/db.properties
+/ehcache.xml
+/log4j.properties

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="issp" default="gen-appCode-service" basedir=".">
+	<!-- 定义tsn-web的appcode列表 -->
+	<property name="appCodes" value="issp" />
+	<!-- 定义属性，打成war包的名称。 -->
+	<property name="warFileName" value="issp.war"/>
+	<tstamp>
+		<format property="DtimeStamp" pattern="yyyyMMddHHmmss"/>
+	</tstamp>
+
+	<!-- 定义路径，编译java文件时用到的jar包。 -->
+	<path id="project.lib">
+		<fileset dir="${basedir}/WebContent/WEB-INF/lib">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+	
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties" >
+		<classpath>
+			<pathelement location="lib/ant-contrib-1.0b3.jar" />
+		</classpath>
+	</taskdef>
+
+	<!-- 定义任务，清空任务：清空原有的class文件，创建新的build路径。 -->
+	<target name="clean">
+		<delete dir="${basedir}/build/class" />
+		<mkdir dir="${basedir}/build/class" />
+
+		<delete dir="${basedir}/target" />
+		<mkdir dir="${basedir}/target" />
+
+		<delete dir="${basedir}/WebContent/version" />
+		<mkdir dir="${basedir}/WebContent/version" />
+		<touch file="${basedir}/WebContent/version/${DtimeStamp}.ver"/>
+	</target>
+
+	<!-- 定义任务，编译src文件夹中的java文件，编译后的class文件放到创建的文件夹下。 -->
+	<target name="compile" depends="clean">
+		<javac srcdir="${basedir}/src/main/java" destdir="${basedir}/build/class" includeantruntime="false">
+			<classpath refid="project.lib">
+			</classpath>
+			<compilerarg line="-encoding UTF-8 "/>
+		</javac>
+		<copy todir="${basedir}/build/class/com/cmsz/ircn/mapping">
+			<fileset dir="${basedir}/src/main/java/com/cmsz/ircn/mapping">
+				<include name="*.xml" />
+			</fileset>
+		</copy>
+		<copy todir="${basedir}/build/class/com/cmsz/ircn/captcha">
+			<fileset dir="${basedir}/src/main/java/com/cmsz/ircn/captcha">
+				<include name="*.jpg" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="gen-appCode-service" depends="compile">
+		<foreach
+	        delimiter=","
+	        list="${appCodes}"
+	        param="appCode"
+	        target="warFile" >
+		</foreach>
+	</target>
+
+	<!-- 定义默认任务，将class文件集合成jar包。 -->
+	<target name="warFile">
+		<touch file="${basedir}/WebContent/WEB-INF/${appCode}.appcode"/>
+		<!-- 建立新war包。 -->
+		<war destfile="${basedir}/target/${appCode}/${warFileName}" webxml="${basedir}/WebContent/WEB-INF/web.xml">
+			<!-- 将非jar和非class文件拷贝到war包的对应路径下。 -->
+			<fileset dir="${basedir}/WebContent">
+				<include name="**/**.*" />
+				<exclude name="**/*.jar"/>
+				<exclude name="**/*.class"/>
+				<exclude name="**/*.ver"/>
+                <exclude name="**/*.appcode"/>
+			</fileset>
+            <fileset dir="${basedir}/WebContent">
+                <include name="**/${appCode}.appcode" />
+            </fileset>
+			<fileset dir="${basedir}/WebContent/version">
+				<include name="**/**.ver" />
+			</fileset>
+			<!-- 将jar和class文件拷贝到war包的对应路径下。 -->
+			<lib dir="${basedir}/WebContent/WEB-INF/lib" />
+			<classes dir="${basedir}/build/class" />
+		</war>
+		<delete file="${basedir}/WebContent/WEB-INF/${appCode}.appcode" />
+	</target>
+
+</project>
